@@ -10,5 +10,16 @@ class DokumenMetode extends Model
     use HasFactory;
 
     protected $table = 'dokumen_metode';
-    protected $fillable = ['klaim_metode_id', 'nama_dokumen', 'file_path', 'uploaded_at'];
+    public $timestamps = false;
+
+    protected $fillable = [
+        'klaim_metode_id',
+        'nama_file',
+        'path_file',
+    ];
+
+    public function klaimMetode()
+    {
+        return $this->belongsTo(KlaimMetode::class, 'klaim_metode_id');
+    }
 }

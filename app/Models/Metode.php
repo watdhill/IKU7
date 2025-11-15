@@ -10,5 +10,13 @@ class Metode extends Model
     use HasFactory;
 
     protected $table = 'metode';
-    protected $fillable = ['nama_metode', 'deskripsi'];
+    public $timestamps = false;
+
+    protected $fillable = ['kode_metode', 'nama_metode'];
+
+    // Relasi ke KlaimMetode
+    public function klaimMetode()
+    {
+        return $this->hasMany(KlaimMetode::class, 'metode_id');
+    }
 }

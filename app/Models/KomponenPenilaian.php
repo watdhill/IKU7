@@ -10,5 +10,16 @@ class KomponenPenilaian extends Model
     use HasFactory;
 
     protected $table = 'komponen_penilaian';
-    protected $fillable = ['id_mk', 'id_metode', 'nama_komponen', 'persentase'];
+    public $timestamps = false;
+
+    protected $fillable = [
+        'klaim_metode_id',
+        'nama',
+        'persentase',
+    ];
+
+    public function klaimMetode()
+    {
+        return $this->belongsTo(KlaimMetode::class, 'klaim_metode_id');
+    }
 }
