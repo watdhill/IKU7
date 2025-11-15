@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dosen')
 
 @section('content')
 <!-- Load Tailwind CSS (as it seems the original template uses it) and Chart.js -->

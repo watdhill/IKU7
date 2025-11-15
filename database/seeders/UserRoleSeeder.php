@@ -8,30 +8,33 @@ use App\Models\User;
 
 class UserRoleSeeder extends Seeder
 {
-    /**
-     * Jalankan seeder untuk membuat akun dengan role berbeda.
-     */
     public function run(): void
     {
-        User::create([
-            'name' => 'Rektorat Admin',
-            'email' => 'rektorat@example.com',
-            'password' => Hash::make('12345678'),
-            'role' => 'rektorat',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'rektorat@example.com'],
+            [
+                'name' => 'Rektorat Admin',
+                'password' => Hash::make('12345678'),
+                'role' => 'rektorat',
+            ]
+        );
 
-        User::create([
-            'name' => 'Fakultas Admin',
-            'email' => 'fakultas@example.com',
-            'password' => Hash::make('12345678'),
-            'role' => 'fakultas',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'fakultas@example.com'],
+            [
+                'name' => 'Fakultas Admin',
+                'password' => Hash::make('12345678'),
+                'role' => 'fakultas',
+            ]
+        );
 
-        User::create([
-            'name' => 'Dosen Utama',
-            'email' => 'dosen@example.com',
-            'password' => Hash::make('12345678'),
-            'role' => 'dosen',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'dosen@example.com'],
+            [
+                'name' => 'Dosen Utama',
+                'password' => Hash::make('12345678'),
+                'role' => 'dosen',
+            ]
+        );
     }
 }
